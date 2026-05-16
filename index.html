@@ -972,7 +972,7 @@
 <nav class="navbar-ls d-flex align-items-center justify-content-between">
   <a class="navbar-brand-ls" href="#">
     <img src="./assets/icon/ls-logo.png" alt="LifeStyle Logo" class="nav-logo-img"/>
-    <span class="nav-brand-text">Life<span>Style</span></span>
+    <span class="nav-brand-text">Life<span>Style</span> Store</span>
     <P style="color:white; margin-bottom:-25px; font-size:12px; margin-left:-97px">By <strong>Momo ybn</strong><span style="font-size: 50px;">.</span></P>
   </a>
   <div class="nav-links">
@@ -1002,7 +1002,7 @@
   <div class="hero-bg-pattern"></div>
   <div>
     <div class="hero-tag">Collection Exclusive 2026</div>
-    <h1>LIFE<em>STYLE</em></h1>
+    <h1 style="font-size: 30px;">LIFE<em>STYLE</em> STORE</h1>
     <p class="hero-sub">YOUR STYLE, YOUR STORE</p>
 
     <p class="hero-sub">CASQUETTE - CHAPEAU FELT - SACOCHE</p>
@@ -1171,8 +1171,8 @@
   <div class="container">
     <div class="row gy-4">
       <div class="col-md-4">
-        <div class="footer-logo">Life<span>Style</span></div>
-        <div class="footer-tagline">Caps & Accessoires — Dakar</div>
+        <div class="footer-logo">Life<span>Style</span> Store</div>
+        <div class="footer-tagline">CASQUETTE - CHAPEAU FELT - SACOCHE, Dakar</div>
         <div class="footer-social mt-3">
           <a href="#"><i class="bi bi-instagram"></i></a>
           <a href="https://www.facebook.com/share/17ZweConrM/?mibextid=wwXIfr"><i class="bi bi-facebook"></i></a>
@@ -1196,7 +1196,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 LifeStyle — Tous droits réservés</span>
+      <span>© 2026 LifeStyle Store — Tous droits réservés</span>
       <span>Dakar, Sénégal</span>
     </div>
   </div>
@@ -1277,7 +1277,7 @@ const products = [
    ───────────────────────────────── */
 function buildWaLink(productName, price) {
   const msg = encodeURIComponent(
-    `Bonjour LifeStyle ! 👋\n\nJe souhaite commander :\n🧢 *${productName}*\nPrix : ${formatPrice(price)}\n\nMerci de me confirmer la disponibilité.`
+    `Bonjour LifeStyle ! 👋\n\nJe souhaite commander ce produit 🧢 \nPrix : ${formatPrice(price)}\n\nMerci de me confirmer la disponibilité.`
   );
   return `https://wa.me/${WA_NUMBER}?text=${msg}`;
 }
