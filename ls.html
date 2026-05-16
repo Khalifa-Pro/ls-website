@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LifeStyle — Caps & Accessoires</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ════════════ TOKENS ════════════ */
+    :root {
+      --black:   #0a0a0a;
+      --white:   #ffffff;
+      --cream:   #f8f5f0;
+      --gold:    #c9a84c;
+      --gold-lt: #e8d49a;
+      --gray:    #888;
+      --border:  #e5e0d8;
+      --wa:      #25D366;
+    }
+
+    /* ════════════ BASE ════════════ */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+    h1,h2,h3,h4 { font-family: 'Cormorant Garamond', serif; }
+
+    /* ════════════ NAVBAR ════════════ */
+    .navbar-ls {
+      background: var(--black);
+      padding: .9rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .navbar-brand-ls {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      text-decoration: none;
+    }
+    .nav-logo-img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      filter: invert(1);
+    }
+    .nav-brand-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 3px;
+    }
+    .nav-brand-text span { color: var(--gold); }
+    .nav-links a {
+      color: #bbb;
+      text-decoration: none;
+      font-size: .78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-left: 2rem;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .btn-wa-nav {
+      background: var(--wa);
+      color: #fff;
+      border: none;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: .45rem 1.1rem;
+      border-radius: 2px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      text-decoration: none;
+      transition: opacity .2s;
+    }
+    .btn-wa-nav:hover { opacity: .85; color: #fff; }
+    .navbar-toggler-ls {
+      background: none;
+      border: 1px solid #333;
+      padding: .3rem .6rem;
+      cursor: pointer;
+    }
+    .navbar-toggler-ls span { color: #fff; font-size: 1.2rem; }
+
+    /* mobile menu */
+    .mobile-menu {
+      display: none;
+      background: #111;
+      padding: 1.2rem 2rem;
+      border-bottom: 1px solid #1e1e1e;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block;
+      color: #bbb;
+      text-decoration: none;
+      font-size: .82rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: .6rem 0;
+      border-bottom: 1px solid #1e1e1e;
+      transition: color .2s;
+    }
+    .mobile-menu a:hover { color: var(--gold); }
+
+    /* ════════════ HERO ════════════ */
+    .hero {
+      background: var(--black);
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 4rem 1.5rem;
+    }
+    .hero-bg-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 50%, rgba(201,168,76,.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(201,168,76,.04) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    .hero-tag {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: .65rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      padding: .35rem 1.2rem;
+      border-radius: 2px;
+      margin-bottom: 1.8rem;
+      animation: fadeDown .6s ease both;
+    }
+    .hero h1 {
+      font-size: clamp(3rem, 10vw, 7.5rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: 6px;
+      animation: fadeDown .7s .1s ease both;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      color: #666;
+      font-size: .88rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 1.5rem;
+      animation: fadeDown .7s .2s ease both;
+    }
+    .hero-cta {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeDown .7s .3s ease both;
+    }
+    .btn-primary-ls {
+      background: var(--gold);
+      color: var(--black);
+      border: none;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: .85rem 2.2rem;
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+      display: inline-block;
+    }
+    .btn-primary-ls:hover { background: var(--gold-lt); color: var(--black); transform: translateY(-2px); }
+    .btn-outline-ls {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid #333;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: .85rem 2.2rem;
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+      display: inline-block;
+    }
+    .btn-outline-ls:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* scroll indicator */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+      color: #333;
+      font-size: 1.3rem;
+    }
+    @keyframes bounce {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ════════════ MARQUEE STRIP ════════════ */
+    .marquee-strip {
+      background: var(--gold);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: .55rem 0;
+    }
+    .marquee-inner {
+      display: inline-block;
+      animation: marquee 18s linear infinite;
+    }
+    .marquee-inner span {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--black);
+      margin: 0 2rem;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ════════════ SECTION TITLES ════════════ */
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-tag {
+      font-size: .65rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: .5rem;
+    }
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      letter-spacing: 3px;
+      color: var(--black);
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+    .title-rule {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin: 1rem auto 0;
+    }
+
+    /* ════════════ FILTER BAR ════════════ */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--gray);
+      font-family: 'Jost', sans-serif;
+      font-size: .7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: .4rem 1.2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--black);
+      border-color: var(--black);
+      color: var(--gold);
+    }
+
+    /* ════════════ PRODUCT CARDS ════════════ */
+    .shop-section { padding: 5rem 0; background: var(--cream); }
+
+    .product-card {
+      background: var(--white);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform .3s ease, box-shadow .3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 60px rgba(0,0,0,.1);
+    }
+
+    /* image */
+    .card-img-wrap {
+      background: #fff;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 1rem;
+      transition: transform .45s ease;
+    }
+    .product-card:hover .card-img-wrap img { transform: scale(1.07); }
+
+    /* badge */
+    .card-badge {
+      position: absolute;
+      top: .8rem;
+      left: .8rem;
+      font-size: .58rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: .25rem .7rem;
+      border-radius: 2px;
+    }
+    .badge-new  { background: var(--black); color: var(--gold); }
+    .badge-hot  { background: #c0392b;      color: #fff; }
+    .badge-art  { background: var(--gold);  color: var(--black); }
+
+    /* wishlist btn */
+    .btn-wishlist {
+      position: absolute;
+      top: .7rem;
+      right: .7rem;
+      background: #fff;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+      color: #ccc;
+      font-size: 1rem;
+      transition: color .2s;
+    }
+    .btn-wishlist:hover { color: #e74c3c; }
+    .btn-wishlist.liked { color: #e74c3c; }
+
+    /* card body */
+    .card-body-ls {
+      padding: 1.2rem 1.3rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: .3rem;
+    }
+    .card-cat {
+      font-size: .62rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .card-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--black);
+      line-height: 1.25;
+      margin: .1rem 0 .3rem;
+    }
+    .card-desc {
+      font-size: .8rem;
+      color: #999;
+      line-height: 1.5;
+      flex: 1;
+    }
+    .card-footer-ls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1rem;
+      padding-top: .9rem;
+      border-top: 1px solid var(--border);
+    }
+    .card-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--black);
+    }
+    .card-price small {
+      font-family: 'Jost', sans-serif;
+      font-size: .65rem;
+      letter-spacing: 1px;
+      color: var(--gray);
+      display: block;
+      margin-top: .1rem;
+    }
+
+    /* WhatsApp order button */
+    .btn-order-wa {
+      background: var(--wa);
+      color: #fff;
+      border: none;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: .6rem 1.1rem;
+      border-radius: 2px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      text-decoration: none;
+      transition: opacity .2s, transform .15s;
+    }
+    .btn-order-wa:hover { opacity: .88; color: #fff; transform: scale(1.03); }
+
+    /* product grid */
+    .products-row { --bs-gutter-x: 1.5rem; --bs-gutter-y: 1.8rem; }
+
+    /* hidden / filtered */
+    .product-col { transition: opacity .3s, transform .3s; }
+    .product-col.hidden { display: none; }
+
+    /* ════════════ ABOUT STRIP ════════════ */
+    .about-strip {
+      background: var(--black);
+      padding: 5rem 0;
+      color: var(--white);
+    }
+    .about-strip h2 {
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-weight: 300;
+      letter-spacing: 3px;
+      line-height: 1.15;
+    }
+    .about-strip h2 em { color: var(--gold); font-style: italic; }
+    .about-strip p {
+      color: #888;
+      font-size: .9rem;
+      line-height: 1.9;
+      max-width: 480px;
+    }
+    .stat-item { text-align: center; padding: 1.5rem 1rem; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: .7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #666;
+      margin-top: .4rem;
+    }
+
+    /* ════════════ CONTACT / WA CTA ════════════ */
+    .cta-section {
+      background: var(--gold);
+      padding: 4.5rem 1.5rem;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 5vw, 3.5rem);
+      font-weight: 300;
+      color: var(--black);
+      letter-spacing: 3px;
+    }
+    .cta-section p {
+      color: rgba(0,0,0,.6);
+      font-size: .9rem;
+      margin: .8rem 0 2rem;
+    }
+    .btn-wa-large {
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      border-radius: 2px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      text-decoration: none;
+      transition: opacity .2s;
+    }
+    .btn-wa-large:hover { opacity: .85; color: var(--white); }
+
+    /* ════════════ FOOTER ════════════ */
+    footer {
+      background: #050505;
+      color: #444;
+      padding: 3rem 2rem 2rem;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 4px;
+    }
+    .footer-logo span { color: var(--gold); }
+    .footer-tagline {
+      font-size: .72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #444;
+      margin-top: .3rem;
+    }
+    .footer-link {
+      color: #555;
+      text-decoration: none;
+      font-size: .78rem;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: .5rem;
+      transition: color .2s;
+    }
+    .footer-link:hover { color: var(--gold); }
+    .footer-social a {
+      color: #444;
+      font-size: 1.2rem;
+      margin-right: 1rem;
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-social a:hover { color: var(--gold); }
+    .footer-bottom {
+      border-top: 1px solid #111;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      font-size: .7rem;
+      letter-spacing: 1px;
+      color: #333;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+
+    /* ════════════ MODAL ════════════ */
+    .modal-content { border: none; border-radius: 4px; overflow: hidden; }
+    .modal-img-panel {
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 320px;
+      padding: 2rem;
+    }
+    .modal-img-panel img {
+      max-height: 360px;
+      width: 100%;
+      object-fit: contain;
+    }
+    .modal-info { padding: 2.5rem; }
+    .modal-cat-tag {
+      font-size: .65rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .4rem;
+    }
+    .modal-title-ls {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: .5rem;
+    }
+    .modal-price-ls {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+    .modal-desc-ls {
+      font-size: .88rem;
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .btn-wa-modal {
+      background: var(--wa);
+      color: #fff;
+      border: none;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: .9rem 2rem;
+      border-radius: 2px;
+      width: 100%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+      text-decoration: none;
+      transition: opacity .2s;
+    }
+    .btn-wa-modal:hover { opacity: .88; color: #fff; }
+
+    /* ════════════ ANIMATIONS ════════════ */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .55s ease, transform .55s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ════════════ RESPONSIVE TWEAKS ════════════ */
+    @media (max-width: 768px) {
+      .navbar-ls { padding: .7rem 1.2rem; }
+      .nav-links { display: none; }
+      .hero { min-height: 80vh; padding: 5rem 1.2rem 3rem; }
+      .card-name { font-size: 1.1rem; }
+      .modal-info { padding: 1.5rem; }
+    }
+    @media (max-width: 576px) {
+      .hero h1 { letter-spacing: 3px; }
+      .hero-cta { flex-direction: column; align-items: center; }
+      .btn-primary-ls, .btn-outline-ls { width: 100%; text-align: center; }
+    }
+
+    /* WHATSAPP floating button */
+    .wa-float {
+      position: fixed;
+      bottom: 1.8rem;
+      right: 1.8rem;
+      background: var(--wa);
+      color: #fff;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 6px 20px rgba(37,211,102,.45);
+      text-decoration: none;
+      z-index: 999;
+      animation: pulseWa 2.5s ease infinite;
+      transition: transform .2s;
+    }
+    .wa-float:hover { transform: scale(1.1); color: #fff; }
+    @keyframes pulseWa {
+      0%,100% { box-shadow: 0 6px 20px rgba(37,211,102,.45); }
+      50%      { box-shadow: 0 6px 32px rgba(37,211,102,.75); }
+    }
+    /* ════════════ GALLERY ════════════ */
+  .gallery-section {
+    background: var(--black);
+    padding: 5rem 0 0;
+    overflow: hidden;
+  }
+  .gallery-section .section-tag { color: var(--gold); }
+  .gallery-section .section-title { color: var(--white); }
+  .gallery-section .title-rule { background: var(--gold); }
+
+  /* Mosaic grid */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, 320px);
+    gap: 3px;
+    margin-top: 3rem;
+  }
+
+  /* 5 cells layout:
+     [1] large left   cols 1-5  rows 1-2
+     [2] top middle   cols 6-9  row 1
+     [3] top right    cols 10-12 row 1
+     [4] bot middle   cols 6-9  row 2
+     [5] bot right    cols 10-12 row 2
+  */
+  .gallery-item:nth-child(1) { grid-column: 1 / 6;  grid-row: 1 / 3; }
+  .gallery-item:nth-child(2) { grid-column: 6 / 10; grid-row: 1 / 2; }
+  .gallery-item:nth-child(3) { grid-column: 10 / 13;grid-row: 1 / 2; }
+  .gallery-item:nth-child(4) { grid-column: 6 / 10; grid-row: 2 / 3; }
+  .gallery-item:nth-child(5) { grid-column: 10 / 13;grid-row: 2 / 3; }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .65s cubic-bezier(.25,.46,.45,.94);
+    filter: brightness(.88) saturate(.9);
+  }
+  .gallery-item:hover img {
+    transform: scale(1.08);
+    filter: brightness(.72) saturate(1.1);
+  }
+
+  /* Gold line sweep on hover */
+  .gallery-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 40%, rgba(201,168,76,.18) 100%);
+    opacity: 0;
+    transition: opacity .4s;
+    z-index: 1;
+  }
+  .gallery-item:hover::before { opacity: 1; }
+
+  /* Overlay text */
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.6rem 1.8rem;
+    background: linear-gradient(to top, rgba(0,0,0,.72) 0%, transparent 55%);
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .35s ease, transform .35s ease;
+    z-index: 2;
+  }
+  .gallery-item:hover .gallery-overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .gallery-overlay-tag {
+    font-size: .6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: .3rem;
+  }
+  .gallery-overlay-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 1px;
+    line-height: 1.2;
+  }
+  .gallery-item:nth-child(1) .gallery-overlay-title { font-size: 2rem; }
+
+  /* Corner bracket decoration on hover */
+  .gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    width: 28px;
+    height: 28px;
+    border-top: 1.5px solid var(--gold);
+    border-left: 1.5px solid var(--gold);
+    opacity: 0;
+    transform: scale(.6);
+    transition: opacity .3s .1s, transform .3s .1s;
+    z-index: 3;
+  }
+  .gallery-item:hover::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+  /* Also bottom-right bracket using a pseudo on the overlay */
+  .gallery-overlay::before {
+    content: '';
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 22px;
+    height: 22px;
+    border-bottom: 1.5px solid var(--gold);
+    border-right: 1.5px solid var(--gold);
+    opacity: 0;
+    transform: scale(.6);
+    transition: opacity .3s .15s, transform .3s .15s;
+  }
+  .gallery-item:hover .gallery-overlay::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* ── Lightbox ── */
+  .lightbox-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(5,5,5,.96);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 2rem;
+    cursor: zoom-out;
+  }
+  .lightbox-overlay.open { display: flex; }
+  .lightbox-img-wrap {
+    position: relative;
+    max-width: min(880px, 92vw);
+    max-height: 78vh;
+  }
+  .lightbox-img-wrap img {
+    max-width: 100%;
+    max-height: 78vh;
+    object-fit: contain;
+    border: 1px solid rgba(201,168,76,.25);
+    display: block;
+  }
+
+  /* gold corner frame on lightbox */
+  .lightbox-img-wrap::before,
+  .lightbox-img-wrap::after {
+    content: '';
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border-color: var(--gold);
+    border-style: solid;
+  }
+  .lightbox-img-wrap::before {
+    top: -8px; left: -8px;
+    border-width: 2px 0 0 2px;
+  }
+  .lightbox-img-wrap::after {
+    bottom: -8px; right: -8px;
+    border-width: 0 2px 2px 0;
+  }
+
+  .lightbox-caption {
+    text-align: center;
+    color: var(--gold);
+    font-size: .7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+  .lightbox-close {
+    position: fixed;
+    top: 1.4rem;
+    right: 1.8rem;
+    color: #777;
+    font-size: 1.6rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    line-height: 1;
+    transition: color .2s;
+    z-index: 10000;
+  }
+  .lightbox-close:hover { color: var(--gold); }
+
+  /* lightbox nav arrows */
+  .lightbox-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(201,168,76,.12);
+    border: 1px solid rgba(201,168,76,.3);
+    color: var(--gold);
+    font-size: 1.4rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background .2s;
+    z-index: 10000;
+  }
+  .lightbox-nav:hover { background: rgba(201,168,76,.28); }
+  .lightbox-prev { left: 1.2rem; }
+  .lightbox-next { right: 1.2rem; }
+
+  /* Gallery bottom strip label */
+  .gallery-label-strip {
+    background: var(--gold);
+    padding: .6rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .gallery-label-strip span {
+    font-size: .65rem;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--black);
+    font-weight: 700;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 992px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 240px);
+    }
+    .gallery-item:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 2; }
+    .gallery-item:nth-child(2) { grid-column: 1 / 2; grid-row: 2 / 3; }
+    .gallery-item:nth-child(3) { grid-column: 2 / 3; grid-row: 2 / 3; }
+    .gallery-item:nth-child(4) { grid-column: 1 / 2; grid-row: 3 / 4; }
+    .gallery-item:nth-child(5) { grid-column: 2 / 3; grid-row: 3 / 4; }
+  }
+  @media (max-width: 576px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(5, 220px);
+    }
+    .gallery-item:nth-child(n) { grid-column: 1 / 2; grid-row: auto; }
+    .lightbox-nav { display: none; }
+  }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════ NAVBAR ══════════════ -->
+<nav class="navbar-ls d-flex align-items-center justify-content-between">
+  <a class="navbar-brand-ls" href="#">
+    <img src="./assets/icon/ls-logo.png" alt="LifeStyle Logo" class="nav-logo-img"/>
+    <span class="nav-brand-text">Life<span>Style</span></span>
+    <P style="color:white; margin-bottom:-25px; font-size:12px; margin-left:-97px">By <strong>Momo ybn</strong><span style="font-size: 50px;">.</span></P>
+  </a>
+  <div class="nav-links">
+    <a href="#catalogue">Catalogue</a>
+    <a href="#about">À propos</a>
+    <a href="#contact">Contact</a>
+    <a href="https://wa.me/221782907449" target="_blank" class="btn-wa-nav ms-3">
+      <i class="bi bi-whatsapp"></i> Commander
+    </a>
+  </div>
+  <!-- Mobile hamburger -->
+  <button class="navbar-toggler-ls d-md-none" onclick="toggleMenu()">
+    <span><i class="bi bi-list" id="menuIcon"></i></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#catalogue" onclick="toggleMenu()">Catalogue</a>
+  <a href="#about" onclick="toggleMenu()">À propos</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="https://wa.me/221782907449" target="_blank" style="color:var(--wa)!important">
+    <i class="bi bi-whatsapp me-1"></i> Commander sur WhatsApp
+  </a>
+</div>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <div class="hero-bg-pattern"></div>
+  <div>
+    <div class="hero-tag">Collection Exclusive 2026</div>
+    <h1>LIFE<em>STYLE</em></h1>
+    <p class="hero-sub">YOUR STYLE, YOUR STORE</p>
+
+    <p class="hero-sub">CASQUETTE - CHAPEAU FELT - SACOCHE</p>
+    <div class="hero-cta">
+      <a href="#catalogue" class="btn-primary-ls">Voir la Collection</a>
+      <a href="https://wa.me/221782907449" target="_blank" class="btn-outline-ls">
+        <i class="bi bi-whatsapp me-1"></i> Nous Contacter
+      </a>
+    </div>
+  </div>
+  <div class="scroll-hint"><i class="bi bi-chevron-down"></i></div>
+</section>
+<!-- ══════════════ MARQUEE ══════════════ -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span>Livraison Rapide</span><span>★</span>
+    <span>Qualité Premium</span><span>★</span>
+    <span>Paiement Sécurisé</span><span>★</span>
+    <span>Service Client WhatsApp</span><span>★</span>
+    <span>Caps Authentiques</span><span>★</span>
+    <span>Éditions Limitées</span><span>★</span>
+    <span>Livraison Rapide</span><span>★</span>
+    <span>Qualité Premium</span><span>★</span>
+    <span>Paiement Sécurisé</span><span>★</span>
+    <span>Service Client WhatsApp</span><span>★</span>
+    <span>Caps Authentiques</span><span>★</span>
+    <span>Éditions Limitées</span><span>★</span>
+  </div>
+</div>
+
+<!-- ══════════════ CATALOGUE ══════════════ -->
+<section class="shop-section" id="catalogue">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Notre Sélection</span>
+      <h2 class="section-title">Les<em>Collection</em></h2>
+      <div class="title-rule"></div>
+    </div>
+    <div class="row products-row" id="productsRow"></div>
+  </div>
+</section>
+
+<section class="gallery-section" id="galerie">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Nos Pièces en Image</span>
+      <h2 class="section-title">La <em>Galerie</em></h2>
+      <div class="title-rule"></div>
+    </div>
+  </div>
+
+  <div class="gallery-grid">
+    <!-- Image 1 — Grande à gauche -->
+    <div class="gallery-item reveal" onclick="openLightbox(0)">
+      <img src="./assets/image/img1.jpeg" alt="Cap Collection" loading="lazy"/>
+      <div class="gallery-overlay">
+        <span class="gallery-overlay-tag">Édition Limitée</span>
+        <div class="gallery-overlay-title">Cap Signature</div>
+      </div>
+    </div>
+    <!-- Image 2 -->
+    <div class="gallery-item reveal" onclick="openLightbox(1)">
+      <img src="./assets/image/img2.jpeg" alt="Cap Style" loading="lazy"/>
+      <div class="gallery-overlay">
+        <span class="gallery-overlay-tag">Collection 2026</span>
+        <div class="gallery-overlay-title">Urban Style</div>
+      </div>
+    </div>
+    <!-- Image 3 -->
+    <div class="gallery-item reveal" onclick="openLightbox(2)">
+      <img src="./assets/image/img3.jpeg" alt="Cap Premium" loading="lazy"/>
+      <div class="gallery-overlay">
+        <span class="gallery-overlay-tag">Premium</span>
+        <div class="gallery-overlay-title">Classic Fit</div>
+      </div>
+    </div>
+    <!-- Image 4 -->
+    <div class="gallery-item reveal" onclick="openLightbox(3)">
+      <img src="./assets/image/img4.jpeg" alt="Cap Vintage" loading="lazy"/>
+      <div class="gallery-overlay">
+        <span class="gallery-overlay-tag">Vintage</span>
+        <div class="gallery-overlay-title">Rétro Edition</div>
+      </div>
+    </div>
+    <!-- Image 5 — Remplacez cap5.png par votre 5e image -->
+    <div class="gallery-item reveal" onclick="openLightbox(4)">
+      <img src="./assets/image/img5.jpeg" alt="Cap Exclusif" loading="lazy"/>
+      <div class="gallery-overlay">
+        <span class="gallery-overlay-tag">Exclusif</span>
+        <div class="gallery-overlay-title">Street Series</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-label-strip">
+    <span>LifeStyle — Galerie Officielle</span>
+    <span>2026 Collection ★ Dakar</span>
+  </div>
+</section>
+
+<!-- ══════ LIGHTBOX ══════ -->
+<div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightboxOnBg(event)">
+  <button class="lightbox-close" onclick="closeLightbox()"><i class="bi bi-x-lg"></i></button>
+  <button class="lightbox-nav lightbox-prev" onclick="shiftLightbox(-1); event.stopPropagation()">
+    <i class="bi bi-chevron-left"></i>
+  </button>
+  <div class="lightbox-img-wrap">
+    <img id="lightboxImg" src="" alt=""/>
+  </div>
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+  <button class="lightbox-nav lightbox-next" onclick="shiftLightbox(1); event.stopPropagation()">
+    <i class="bi bi-chevron-right"></i>
+  </button>
+</div>
+
+
+<!-- ══════════════ ABOUT ══════════════ -->
+<section class="about-strip" id="about">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6 reveal">
+        <h2>Chaque cap<br/>raconte une <em>histoire</em></h2>
+        <p class="mt-3">
+          LifeStyle est bien plus qu'une boutique. C'est une sélection minutieuse de caps
+          uniques, vintage et graphiques, pensée pour ceux qui expriment leur personnalité
+          à travers leur style. Des pièces rares, des éditions limitées, une livraison rapide.
+        </p>
+        <a href="https://wa.me/221782907449" target="_blank" class="btn-primary-ls mt-4">
+          <i class="bi bi-whatsapp me-2"></i>Parler à un conseiller
+        </a>
+      </div>
+      <div class="col-lg-6">
+        <div class="row g-0">
+          <div class="col-4 stat-item reveal">
+            <div class="stat-num">50+</div>
+            <div class="stat-label">Modèles</div>
+          </div>
+          <div class="col-4 stat-item reveal">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Authentique</div>
+          </div>
+          <div class="col-4 stat-item reveal">
+            <div class="stat-num">24h</div>
+            <div class="stat-label">Réponse WA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CTA WHATSAPP ══════════════ -->
+<section class="cta-section" id="contact">
+  <div class="reveal">
+    <h2>Prêt à commander ?</h2>
+    <p>Écrivez-nous directement sur WhatsApp — réponse en moins de 24h.</p>
+    <a href="https://wa.me/221782907449?text=Bonjour%20LifeStyle%2C%20je%20souhaite%20commander%20une%20cap." target="_blank" class="btn-wa-large">
+      <i class="bi bi-whatsapp" style="font-size:1.2rem"></i>
+      Commander sur WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-md-4">
+        <div class="footer-logo">Life<span>Style</span></div>
+        <div class="footer-tagline">Caps & Accessoires — Dakar</div>
+        <div class="footer-social mt-3">
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.facebook.com/share/17ZweConrM/?mibextid=wwXIfr"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.tiktok.com/@momomboup14?_r=1&_t=ZS-96PSaysuwjc"><i class="bi bi-tiktok"></i></a>
+          <a href="https://wa.me/221782907449" target="_blank"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <p style="color:#555;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:.8rem">Navigation</p>
+        <a class="footer-link" href="#catalogue">Catalogue</a>
+        <a class="footer-link" href="#about">À propos</a>
+        <a class="footer-link" href="#contact">Contact</a>
+      </div>
+      <div class="col-md-4">
+        <p style="color:#555;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:.8rem">Commandes</p>
+        <a class="footer-link" href="https://wa.me/221782907449" target="_blank">
+          <i class="bi bi-whatsapp me-1" style="color:var(--wa)"></i> WhatsApp
+        </a>
+        <p style="color:#444;font-size:.78rem;margin-top:.5rem">Lundi–Vendredi : 9h–21h</p>
+        <p style="color:#444;font-size:.78rem;margin-top:.5rem">Samedi–Dimanche : 9h–18h</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 LifeStyle — Tous droits réservés</span>
+      <span>Dakar, Sénégal</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp floating button -->
+<a href="https://wa.me/221782907449?text=Bonjour%20LifeStyle%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20vos%20caps." target="_blank" class="wa-float" title="Commander sur WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<!-- ══════════════ PRODUCT MODAL ══════════════ -->
+<div class="modal fade" id="productModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="row g-0">
+        <div class="col-md-5 modal-img-panel">
+          <img id="modalImg" src="" alt=""/>
+        </div>
+        <div class="col-md-7 modal-info">
+          <button type="button" class="btn-close float-end" data-bs-dismiss="modal"></button>
+          <p class="modal-cat-tag" id="modalCat"></p>
+          <h2 class="modal-title-ls" id="modalName"></h2>
+          <div class="modal-price-ls" id="modalPrice"></div>
+          <p class="modal-desc-ls" id="modalDesc"></p>
+          <a href="#" id="modalWaBtn" target="_blank" class="btn-wa-modal">
+            <i class="bi bi-whatsapp" style="font-size:1.1rem"></i>
+            Commander sur WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script id="gallery-js">
+/* ─────────────────────────────────
+   CONFIG — Remplacez par votre vrai numéro WhatsApp
+   Format: 221782907449X (sans + ni espace)
+   ───────────────────────────────── */
+const WA_NUMBER = "221782907449";
+
+/* ─────────────────────────────────
+   PRODUCTS DATA
+   ───────────────────────────────── */
+const products = [
+  {
+    id: 1,
+    price: 3500,
+    img: "./assets/image/cap1.png",
+    badge: "Nouveau",
+    badgeClass: "badge-new"
+  },
+  {
+    id: 2,
+    price: 3500,
+    img: "./assets/image/cap2.png",
+    badge: "Nouveau",
+  },
+  {
+    id: 3,
+    price: 3500,
+    img: "./assets/image/cap3.png",
+    badge: "Nouveau",
+  },
+  {
+    id: 4,
+    price: 3500,
+    img: "./assets/image/cap4.png",
+    badge: "Nouveau",
+  }
+];
+
+/* ─────────────────────────────────
+   BUILD WA LINK
+   ───────────────────────────────── */
+function buildWaLink(productName, price) {
+  const msg = encodeURIComponent(
+    `Bonjour LifeStyle ! 👋\n\nJe souhaite commander :\n🧢 *${productName}*\nPrix : ${formatPrice(price)}\n\nMerci de me confirmer la disponibilité.`
+  );
+  return `https://wa.me/${WA_NUMBER}?text=${msg}`;
+}
+
+/* ─────────────────────────────────
+   FORMAT PRICE
+   ───────────────────────────────── */
+function formatPrice(n) {
+  return n.toLocaleString('fr-FR') + ' FCFA';
+}
+
+/* ─────────────────────────────────
+   RENDER PRODUCTS
+   ───────────────────────────────── */
+function renderProducts(filter = 'all') {
+  const row = document.getElementById('productsRow');
+  row.innerHTML = '';
+
+  const list = filter === 'all' ? products : products.filter(p => p.category === filter);
+
+  list.forEach((p, i) => {
+    const col = document.createElement('div');
+    col.className = 'col-12 col-sm-6 col-lg-4 product-col';
+    col.style.animationDelay = `${i * 0.08}s`;
+
+    col.innerHTML = `
+      <div class="product-card reveal" style="animation-delay:${i*0.08}s">
+        <div class="card-img-wrap">
+          ${p.badge ? `<span class="card-badge ${p.badgeClass || 'badge-new'}">${p.badge}</span>` : ''}
+          <button class="btn-wishlist" onclick="toggleWish(this, event)" title="Favoris">
+            <i class="bi bi-heart"></i>
+          </button>
+          <img src="${p.img}" alt="${p.name}" loading="lazy"/>
+        </div>
+        <div class="card-body-ls">
+          <div class="card-footer-ls">
+            <div class="card-price">
+              ${formatPrice(p.price)}
+              <small>Prix indicatif</small>
+            </div>
+            <a href="${buildWaLink(p.name, p.price)}"
+               target="_blank"
+               class="btn-order-wa"
+               onclick="event.stopPropagation()">
+              <i class="bi bi-whatsapp"></i> Commander
+            </a>
+          </div>
+        </div>
+      </div>
+    `;
+
+    /* click card → modal */
+    col.querySelector('.product-card').addEventListener('click', () => openModal(p));
+
+    row.appendChild(col);
+  });
+
+  /* trigger reveal for new cards */
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.reveal').forEach(el => {
+      if (isInView(el)) el.classList.add('visible');
+    });
+  });
+}
+
+/* ─────────────────────────────────
+   FILTER
+   ───────────────────────────────── */
+function filterCaps(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderProducts(cat);
+}
+
+/* ─────────────────────────────────
+   WISHLIST TOGGLE
+   ───────────────────────────────── */
+function toggleWish(btn, e) {
+  e.stopPropagation();
+  btn.classList.toggle('liked');
+  btn.querySelector('i').className = btn.classList.contains('liked') ? 'bi bi-heart-fill' : 'bi bi-heart';
+}
+
+/* ─────────────────────────────────
+   MODAL
+   ───────────────────────────────── */
+function openModal(p) {
+  document.getElementById('modalImg').src = p.img;
+  document.getElementById('modalImg').alt = p.name;
+  document.getElementById('modalCat').textContent = p.tag;
+  document.getElementById('modalName').textContent = p.name;
+  document.getElementById('modalPrice').textContent = formatPrice(p.price);
+  document.getElementById('modalDesc').textContent = p.desc;
+  document.getElementById('modalWaBtn').href = buildWaLink(p.name, p.price);
+  new bootstrap.Modal(document.getElementById('productModal')).show();
+}
+
+/* ─────────────────────────────────
+   MOBILE MENU
+   ───────────────────────────────── */
+function toggleMenu() {
+  const m = document.getElementById('mobileMenu');
+  const ic = document.getElementById('menuIcon');
+  m.classList.toggle('open');
+  ic.className = m.classList.contains('open') ? 'bi bi-x-lg' : 'bi bi-list';
+}
+
+/* ─────────────────────────────────
+   SCROLL REVEAL
+   ───────────────────────────────── */
+function isInView(el) {
+  const r = el.getBoundingClientRect();
+  return r.top < window.innerHeight - 60;
+}
+function onScroll() {
+  document.querySelectorAll('.reveal').forEach(el => {
+    if (isInView(el)) el.classList.add('visible');
+  });
+}
+window.addEventListener('scroll', onScroll);
+
+/* ─────────────────────────────────
+   INIT
+   ───────────────────────────────── */
+renderProducts();
+onScroll(); /* trigger for above-fold items */
+/* ── Lightbox data ── */
+const galleryItems = [
+  { src: './assets/image/img1.jpeg', caption: 'Cap Signature — Édition Limitée' },
+  { src: './assets/image/img2.jpeg', caption: 'Urban Style — Collection 2026'   },
+  { src: './assets/image/img3.jpeg', caption: 'Classic Fit — Premium'           },
+  { src: './assets/image/img4.jpeg', caption: 'Rétro Edition — Vintage'         },
+  { src: './assets/image/img5.jpeg', caption: 'Street Series — Exclusif'        },
+];
+let currentLightbox = 0;
+
+function openLightbox(index) {
+  currentLightbox = index;
+  updateLightbox();
+  document.getElementById('lightboxOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightboxOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeLightboxOnBg(e) {
+  if (e.target === document.getElementById('lightboxOverlay')) closeLightbox();
+}
+function shiftLightbox(dir) {
+  currentLightbox = (currentLightbox + dir + galleryItems.length) % galleryItems.length;
+  updateLightbox();
+}
+function updateLightbox() {
+  const item = galleryItems[currentLightbox];
+  const img = document.getElementById('lightboxImg');
+  img.style.opacity = '0';
+  img.style.transition = 'opacity .25s';
+  setTimeout(() => {
+    img.src = item.src;
+    img.alt = item.caption;
+    document.getElementById('lightboxCaption').textContent = item.caption;
+    img.style.opacity = '1';
+  }, 120);
+}
+/* Keyboard nav */
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightboxOverlay').classList.contains('open')) return;
+  if (e.key === 'ArrowLeft')  shiftLightbox(-1);
+  if (e.key === 'ArrowRight') shiftLightbox(1);
+  if (e.key === 'Escape')     closeLightbox();
+});
+
+</script>
+</body>
+</html>
