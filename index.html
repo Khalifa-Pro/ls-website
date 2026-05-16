@@ -1247,27 +1247,34 @@ const WA_NUMBER = "221782907449";
 const products = [
   {
     id: 1,
+    name: "CHEER LEADER",
     price: 3500,
     img: "./assets/image/cap1.png",
-    badge: "Nouveau",
-    badgeClass: "badge-new"
+    desc: "Couleur Bleu & Blanc",
+    badge: "Nouveau"
   },
   {
     id: 2,
+    name: "Hollister",
     price: 3500,
     img: "./assets/image/cap2.png",
+    desc: "Modèle holister couleur Marron & Beige",
     badge: "Nouveau",
   },
   {
     id: 3,
+    name: "TC",
     price: 3500,
     img: "./assets/image/cap3.png",
+    desc: "Couleur Bleu & Blanc dévalée , Modèle TC",
     badge: "Nouveau",
   },
   {
     id: 4,
+    name: "TAOS",
     price: 3500,
     img: "./assets/image/cap4.png",
+    desc: "Couleur Beige & Bleu, modèle vintage et authentique",
     badge: "Nouveau",
   }
 ];
@@ -1275,9 +1282,9 @@ const products = [
 /* ─────────────────────────────────
    BUILD WA LINK
    ───────────────────────────────── */
-function buildWaLink(productName, price) {
+function buildWaLink(productName, price, desc) {
   const msg = encodeURIComponent(
-    `Bonjour LifeStyle ! 👋\n\nJe souhaite commander ce produit 🧢 \nPrix : ${formatPrice(price)}\n\nMerci de me confirmer la disponibilité.`
+    `Bonjour LifeStyle Store ! 👋\n\nJe souhaite commander ce produit 🧢 \nNom: ${productName} \nDescription: ${desc} \nPrix : ${formatPrice(price)}\n\nMerci de me confirmer la disponibilité.`
   );
   return `https://wa.me/${WA_NUMBER}?text=${msg}`;
 }
@@ -1315,10 +1322,11 @@ function renderProducts(filter = 'all') {
         <div class="card-body-ls">
           <div class="card-footer-ls">
             <div class="card-price">
+              <div class="card-name">${p.name}</div>
               ${formatPrice(p.price)}
               <small>Prix indicatif</small>
             </div>
-            <a href="${buildWaLink(p.name, p.price)}"
+            <a href="${buildWaLink(p.name, p.price, p.desc)}"
                target="_blank"
                class="btn-order-wa"
                onclick="event.stopPropagation()">
